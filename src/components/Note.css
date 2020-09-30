@@ -1,0 +1,29 @@
+.note{
+    background-color: white;
+    height : 300px;
+    width : 250px;
+    padding: 20px;
+    text-align: center;
+    margin : 10px;
+    box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.handle{
+     height : 300px;
+    width : 250px;
+}
+
+.test{
+    background-color: red;
+}
+
+.mousedown{
+    background-color: white;
+    height : 300px;
+    width : 250px;
+    scale:1.02;
+    padding: 20px;
+    text-align: center;
+    margin : 10px;
+    box-shadow: 3px 5px 30px rgba(0, 0, 0, 0.4);
+}
