@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Note.css';
 import Draggable from 'react-draggable';
+import { deleteNote } from '../service/Api';
 class Note extends Component
 {
     constructor ()
@@ -27,6 +28,11 @@ class Note extends Component
         console.log("mouseup")
     }
 
+
+    handleDeleteNote = () => {
+        deleteNote(this.props.id)
+    }
+
     render() {
         return (
             
@@ -50,6 +56,8 @@ class Note extends Component
                     <div className={this.state.isDown ? "mousedown" : "note"}>
                     <h2>{this.props.title}</h2>
                     <p>{this.props.description}</p>
+                    <button onClick = {this.handleEditNote}>Editer</button>
+                    <button onClick={this.handleDeleteNote}>Delete</button>
                 </div>
           </div>
       </Draggable>

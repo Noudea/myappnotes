@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Note from '../components/Note'
 import Menu from '../components/Menu'
+import EditModal from '../components/EditModal'
+import {getNotes} from '../service/Api'
 import './Board.css'
 
 class Board extends Component {
@@ -13,10 +15,7 @@ class Board extends Component {
 
 
     componentDidMount() {
-        fetch("https://api.myidea.fr/v1/notes")
-            .then((response) => response.json())
-            .then((result) => this.setState({ data: result }, console.log(result))
-            )
+        getNotes().then(data => this.setState({data : data}))
     }
 
 
@@ -26,9 +25,12 @@ class Board extends Component {
                 <div className = "menu">
                     <Menu />
                 </div>
+                <div>
+                    <EditModal />
+                </div>
                 {
                     this.state.data.map( note => {
-                        return <Note key={note.id} title={note.title} description={note.description} favorite={note.isFavorite} />
+                        return <Note key={note.id} id={note.id} title={note.title} description={note.description} favorite={note.isFavorite} />
                         
                     })
                 }
